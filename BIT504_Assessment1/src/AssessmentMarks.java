@@ -78,8 +78,8 @@ public class AssessmentMarks {
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// Other methods
 	// Calculate average mark for the course
-	public double getAverageMark() {
-		double averageMark = (assessment1+assessment2+assessment3)/3;
+	public int getAverageMark() {
+		int averageMark = (assessment1+assessment2+assessment3)/3;
 		return averageMark;
 	}
 	
@@ -109,11 +109,9 @@ public class AssessmentMarks {
 	// a method to get the average grade for the course
 	public String getAverageGrade() {
 		// get the average mark of the course
-		double averageMark = getAverageMark();
-		// round the average mark to an integer 
-		int roundMark = (int) Math.round(averageMark);
+		int averageMark = getAverageMark();
 		// get the grade of the average mark by using the markToGrade method
-		return markToGrade(roundMark);
+		return markToGrade(averageMark);
 	}
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

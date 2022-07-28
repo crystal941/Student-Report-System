@@ -109,24 +109,24 @@ public class Main {
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private static void displayReportByMarks() {
 		
-		System.out.println("ID\tStudent Name\t Maths\t A1\tA2\tA3\tEnglish\t A1\tA2\tA3");
-		System.out.println("------------------------------------------------------------------------------------");
+		System.out.println("ID\tStudent Name\t Course\t A1\tA2\tA3\tAverage\t\tCourse\t A1\tA2\tA3\tAverage");
+		System.out.println("----------------------------------------------------------------------------------------------------------------");
 		
 		// use an enhanced for loop to iterate through the allStudents LinkedList and display the data
 		for(Student s : allStudents) {
-			System.out.println(s.id+"\t"+s.getFullName()+"\t\t "+s.mathsMarks.getMark(1)+"\t"+s.mathsMarks.getMark(2)+"\t"+s.mathsMarks.getMark(3)+"\t\t "+s.englishMarks.getMark(1)+"\t"+s.englishMarks.getMark(2)+"\t"+s.englishMarks.getMark(3));
+			System.out.println(s.id+"\t"+s.getFullName()+"\t "+s.mathsMarks.getCourseName()+"\t "+s.mathsMarks.getMark(1)+"\t"+s.mathsMarks.getMark(2)+"\t"+s.mathsMarks.getMark(3)+"\t"+ s.mathsMarks.getAverageMark()+"\t\t"+ s.englishMarks.getCourseName()+ "\t "+s.englishMarks.getMark(1)+"\t"+s.englishMarks.getMark(2)+"\t"+s.englishMarks.getMark(3)+"\t"+s.englishMarks.getAverageMark());
 		}
 		
 	} 
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private static void displayReportByGrades() {
-		System.out.println("ID\tStudent Name\t Maths\t A1\tA2\tA3\tEnglish\t A1\tA2\tA3");
-		System.out.println("------------------------------------------------------------------------------------");
+		System.out.println("ID\tStudent Name\t Course\t A1\tA2\tA3\tAverage\t\tCourse\t A1\tA2\tA3\tAverage");
+		System.out.println("----------------------------------------------------------------------------------------------------------------");
 		
 		// use an enhanced for loop to iterate through the allStudents LinkedList and display the data
 		for(Student s : allStudents) {
-			System.out.println(s.id+"\t"+s.getFullName()+"\t\t "+s.mathsMarks.getGrade(1)+"\t"+s.mathsMarks.getGrade(2)+"\t"+s.mathsMarks.getGrade(3)+"\t\t "+s.englishMarks.getGrade(1)+"\t"+s.englishMarks.getGrade(2)+"\t"+s.englishMarks.getGrade(3));
+			System.out.println(s.id+"\t"+s.getFullName()+"\t "+s.mathsMarks.getCourseName()+"\t "+s.mathsMarks.getGrade(1)+"\t"+s.mathsMarks.getGrade(2)+"\t"+s.mathsMarks.getGrade(3)+"\t"+ s.mathsMarks.getAverageGrade()+"\t\t"+s.englishMarks.getCourseName()+"\t "+s.englishMarks.getGrade(1)+"\t"+s.englishMarks.getGrade(2)+"\t"+s.englishMarks.getGrade(3)+"\t"+s.englishMarks.getAverageGrade());
 		}
 	}
 	
@@ -140,18 +140,20 @@ public class Main {
 	private static int selectMenuOption() {
 		int option = 0;
 		Scanner scanner = new Scanner(System.in);
+		boolean menu = false;
 		do {
 			System.out.print("----------------------------\nPlease enter your option:");
 			option = scanner.nextInt();
+			menu = true;
 			
-			// Validate user input and provide an error message
+			// Validate user input and provide an error message			
 			if (option < 1 || option > 5) {
 				System.out.println("Invalid input. Please try again.");
 			}
 		}
-			while (option < 1 || option > 5);
+			while (!menu);
 			return option;
-	}
+	}  
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private static void addNewStudent() {
